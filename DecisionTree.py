@@ -104,8 +104,8 @@ class DecisionTree:
 
     def _split(self,X_column,threshold):
 
-        left_idxs=np.anywhere(X_column<=threshold).flatten()
-        right_idxs=np.anywhere(X_column>threshold).flatten()
+        left_idxs=np.where(X_column<=threshold)[0]
+        right_idxs=np.where(X_column>threshold)[0]
         return left_idxs,right_idxs
 
     def _information_gain(self,y,X_column,threshold):
